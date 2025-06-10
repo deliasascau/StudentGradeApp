@@ -1,0 +1,19 @@
+# Visual Studio / .NET
+bin/
+obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.vs/
+.vsconfig
+
+# Rider
+.idea/
+
+# NuGet
+*.nupkg
+*.snupkg
+
+# Build logs
+*.log
