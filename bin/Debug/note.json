@@ -1,0 +1,16 @@
+[
+  {
+    "Id": 305,
+    "StudentId": 304,
+    "DisciplinaId": 1,
+    "Valoare": 5,
+    "DataNota": "2025-06-10T11:36:47.6105236+03:00"
+  },
+  {
+    "Id": 306,
+    "StudentId": 304,
+    "DisciplinaId": 2,
+    "Valoare": 3,
+    "DataNota": "2025-06-10T11:48:27.3224653+03:00"
+  }
+]
