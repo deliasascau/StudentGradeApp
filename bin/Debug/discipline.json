@@ -10,5 +10,11 @@
     "Nume": "ssdfds",
     "Acronym": "fsdf",
     "TipEvaluare": 2
+  },
+  {
+    "Id": 3,
+    "Nume": "dsa",
+    "Acronym": "dddddddd",
+    "TipEvaluare": 1
   }
 ]

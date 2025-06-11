@@ -10,6 +10,13 @@
         private System.Windows.Forms.ToolStripMenuItem studentsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem disciplineToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem notesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparatorReports;
+        private System.Windows.Forms.ToolStripMenuItem byStudentToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem byDisciplineToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem generalToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem averageToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem matrixToolStripMenuItem;
+
         private System.Windows.Forms.DataGridView dgvEntities;
         private System.Windows.Forms.Panel panelButtons;
         private System.Windows.Forms.Button btnAdd;
@@ -34,13 +41,21 @@
             this.studentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.disciplineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.notesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparatorReports = new System.Windows.Forms.ToolStripSeparator();
+            this.byStudentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.byDisciplineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.generalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.averageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.matrixToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+
             this.dgvEntities = new System.Windows.Forms.DataGridView();
             this.panelButtons = new System.Windows.Forms.Panel();
-            this.btnExportCsv = new System.Windows.Forms.Button();
-            this.btnRefresh = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.btnEdit = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnRefresh = new System.Windows.Forms.Button();
+            this.btnExportCsv = new System.Windows.Forms.Button();
+
             this.menuStripMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEntities)).BeginInit();
             this.panelButtons.SuspendLayout();
@@ -48,134 +63,153 @@
             // 
             // menuStripMain
             // 
-            this.menuStripMain.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStripMain.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem,
-            this.manageToolStripMenuItem});
+                this.fileToolStripMenuItem,
+                this.manageToolStripMenuItem
+            });
             this.menuStripMain.Location = new System.Drawing.Point(0, 0);
             this.menuStripMain.Name = "menuStripMain";
-            this.menuStripMain.Size = new System.Drawing.Size(804, 33);
+            this.menuStripMain.Size = new System.Drawing.Size(800, 28);
             this.menuStripMain.TabIndex = 0;
             // 
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.exitToolStripMenuItem});
+                this.exitToolStripMenuItem
+            });
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(54, 29);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(141, 34);
             this.exitToolStripMenuItem.Text = "Exit";
             // 
             // manageToolStripMenuItem
             // 
             this.manageToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.studentsToolStripMenuItem,
-            this.disciplineToolStripMenuItem,
-            this.notesToolStripMenuItem});
+                this.studentsToolStripMenuItem,
+                this.disciplineToolStripMenuItem,
+                this.notesToolStripMenuItem,
+                this.toolStripSeparatorReports,
+                this.byStudentToolStripMenuItem,
+                this.byDisciplineToolStripMenuItem,
+                this.generalToolStripMenuItem,
+                this.averageToolStripMenuItem,
+                this.matrixToolStripMenuItem
+            });
             this.manageToolStripMenuItem.Name = "manageToolStripMenuItem";
-            this.manageToolStripMenuItem.Size = new System.Drawing.Size(92, 29);
             this.manageToolStripMenuItem.Text = "Manage";
             // 
             // studentsToolStripMenuItem
             // 
             this.studentsToolStripMenuItem.Name = "studentsToolStripMenuItem";
-            this.studentsToolStripMenuItem.Size = new System.Drawing.Size(189, 34);
             this.studentsToolStripMenuItem.Text = "Students";
             // 
             // disciplineToolStripMenuItem
             // 
             this.disciplineToolStripMenuItem.Name = "disciplineToolStripMenuItem";
-            this.disciplineToolStripMenuItem.Size = new System.Drawing.Size(189, 34);
             this.disciplineToolStripMenuItem.Text = "Discipline";
             // 
             // notesToolStripMenuItem
             // 
             this.notesToolStripMenuItem.Name = "notesToolStripMenuItem";
-            this.notesToolStripMenuItem.Size = new System.Drawing.Size(189, 34);
             this.notesToolStripMenuItem.Text = "Notes";
+            // 
+            // toolStripSeparatorReports
+            // 
+            this.toolStripSeparatorReports.Name = "toolStripSeparatorReports";
+            // 
+            // byStudentToolStripMenuItem
+            // 
+            this.byStudentToolStripMenuItem.Name = "byStudentToolStripMenuItem";
+            this.byStudentToolStripMenuItem.Text = "Situație per Student";
+            // 
+            // byDisciplineToolStripMenuItem
+            // 
+            this.byDisciplineToolStripMenuItem.Name = "byDisciplineToolStripMenuItem";
+            this.byDisciplineToolStripMenuItem.Text = "Situație per Discipline";
+            // 
+            // generalToolStripMenuItem
+            // 
+            this.generalToolStripMenuItem.Name = "generalToolStripMenuItem";
+            this.generalToolStripMenuItem.Text = "Situație Generală";
+            // 
+            // averageToolStripMenuItem
+            // 
+            this.averageToolStripMenuItem.Name = "averageToolStripMenuItem";
+            this.averageToolStripMenuItem.Text = "Interactive Average";
+            // 
+            // matrixToolStripMenuItem
+            // 
+            this.matrixToolStripMenuItem.Name = "matrixToolStripMenuItem";
+            this.matrixToolStripMenuItem.Text = "Matrix Student×Disciplina";
             // 
             // dgvEntities
             // 
             this.dgvEntities.AllowUserToAddRows = false;
             this.dgvEntities.AllowUserToDeleteRows = false;
-            this.dgvEntities.ColumnHeadersHeight = 34;
-            this.dgvEntities.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvEntities.ColumnHeadersHeightSizeMode =
+                System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEntities.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvEntities.Location = new System.Drawing.Point(0, 33);
+            this.dgvEntities.Location = new System.Drawing.Point(0, 28);
             this.dgvEntities.Name = "dgvEntities";
             this.dgvEntities.ReadOnly = true;
-            this.dgvEntities.RowHeadersWidth = 62;
-            this.dgvEntities.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvEntities.Size = new System.Drawing.Size(804, 372);
-            this.dgvEntities.TabIndex = 1;
+            this.dgvEntities.SelectionMode =
+                System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvEntities.Size = new System.Drawing.Size(800, 382);
             // 
             // panelButtons
             // 
-            this.panelButtons.Controls.Add(this.btnExportCsv);
-            this.panelButtons.Controls.Add(this.btnRefresh);
-            this.panelButtons.Controls.Add(this.btnDelete);
-            this.panelButtons.Controls.Add(this.btnEdit);
             this.panelButtons.Controls.Add(this.btnAdd);
+            this.panelButtons.Controls.Add(this.btnEdit);
+            this.panelButtons.Controls.Add(this.btnDelete);
+            this.panelButtons.Controls.Add(this.btnRefresh);
+            this.panelButtons.Controls.Add(this.btnExportCsv);
             this.panelButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelButtons.Location = new System.Drawing.Point(0, 405);
+            this.panelButtons.Location = new System.Drawing.Point(0, 410);
             this.panelButtons.Name = "panelButtons";
-            this.panelButtons.Size = new System.Drawing.Size(804, 100);
-            this.panelButtons.TabIndex = 2;
-            // 
-            // btnExportCsv
-            // 
-            this.btnExportCsv.Location = new System.Drawing.Point(576, 23);
-            this.btnExportCsv.Name = "btnExportCsv";
-            this.btnExportCsv.Size = new System.Drawing.Size(108, 55);
-            this.btnExportCsv.TabIndex = 0;
-            this.btnExportCsv.Text = "Export CSV";
-            this.btnExportCsv.UseVisualStyleBackColor = true;
-            // 
-            // btnRefresh
-            // 
-            this.btnRefresh.Location = new System.Drawing.Point(462, 23);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(108, 55);
-            this.btnRefresh.TabIndex = 1;
-            this.btnRefresh.Text = "Refresh";
-            this.btnRefresh.UseVisualStyleBackColor = true;
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Location = new System.Drawing.Point(348, 23);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(108, 55);
-            this.btnDelete.TabIndex = 2;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            // 
-            // btnEdit
-            // 
-            this.btnEdit.Location = new System.Drawing.Point(234, 23);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(108, 55);
-            this.btnEdit.TabIndex = 3;
-            this.btnEdit.Text = "Edit";
-            this.btnEdit.UseVisualStyleBackColor = true;
+            this.panelButtons.Size = new System.Drawing.Size(800, 50);
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(120, 23);
+            this.btnAdd.Location = new System.Drawing.Point(10, 10);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(108, 55);
-            this.btnAdd.TabIndex = 4;
+            this.btnAdd.Size = new System.Drawing.Size(75, 30);
             this.btnAdd.Text = "Add";
-            this.btnAdd.UseVisualStyleBackColor = true;
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.Location = new System.Drawing.Point(95, 10);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(75, 30);
+            this.btnEdit.Text = "Edit";
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(180, 10);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(75, 30);
+            this.btnDelete.Text = "Delete";
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Location = new System.Drawing.Point(265, 10);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(75, 30);
+            this.btnRefresh.Text = "Refresh";
+            // 
+            // btnExportCsv
+            // 
+            this.btnExportCsv.Location = new System.Drawing.Point(350, 10);
+            this.btnExportCsv.Name = "btnExportCsv";
+            this.btnExportCsv.Size = new System.Drawing.Size(90, 30);
+            this.btnExportCsv.Text = "Export CSV";
             // 
             // MainForm
             // 
-            this.ClientSize = new System.Drawing.Size(804, 505);
+            this.ClientSize = new System.Drawing.Size(800, 460);
             this.Controls.Add(this.dgvEntities);
             this.Controls.Add(this.panelButtons);
             this.Controls.Add(this.menuStripMain);
@@ -188,7 +222,6 @@
             this.panelButtons.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
     }
 }

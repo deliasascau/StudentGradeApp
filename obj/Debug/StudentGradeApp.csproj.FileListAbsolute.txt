@@ -1,11 +1,3 @@
-C:\Users\Lenovo\source\repos\StudentGradeApp\StudentGradeApp\obj\Debug\StudentGradeApp.csproj.AssemblyReference.cache
-C:\Users\Lenovo\source\repos\StudentGradeApp\StudentGradeApp\obj\Debug\StudentGradeApp.Forms.DisciplinaForm.resources
-C:\Users\Lenovo\source\repos\StudentGradeApp\StudentGradeApp\obj\Debug\StudentGradeApp.Forms.MainForm.resources
-C:\Users\Lenovo\source\repos\StudentGradeApp\StudentGradeApp\obj\Debug\StudentGradeApp.Forms.NotaForm.resources
-C:\Users\Lenovo\source\repos\StudentGradeApp\StudentGradeApp\obj\Debug\StudentGradeApp.Forms.StudentForm.resources
-C:\Users\Lenovo\source\repos\StudentGradeApp\StudentGradeApp\obj\Debug\StudentGradeApp.Properties.Resources.resources
-C:\Users\Lenovo\source\repos\StudentGradeApp\StudentGradeApp\obj\Debug\StudentGradeApp.csproj.GenerateResource.cache
-C:\Users\Lenovo\source\repos\StudentGradeApp\StudentGradeApp\obj\Debug\StudentGradeApp.csproj.CoreCompileInputs.cache
 C:\Users\Lenovo\source\repos\StudentGradeApp\StudentGradeApp\bin\Debug\libSkiaSharp.dylib
 C:\Users\Lenovo\source\repos\StudentGradeApp\StudentGradeApp\bin\Debug\x86\libSkiaSharp.dll
 C:\Users\Lenovo\source\repos\StudentGradeApp\StudentGradeApp\bin\Debug\x64\libSkiaSharp.dll
@@ -29,6 +21,14 @@ C:\Users\Lenovo\source\repos\StudentGradeApp\StudentGradeApp\bin\Debug\System.Bu
 C:\Users\Lenovo\source\repos\StudentGradeApp\StudentGradeApp\bin\Debug\System.Memory.xml
 C:\Users\Lenovo\source\repos\StudentGradeApp\StudentGradeApp\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\Lenovo\source\repos\StudentGradeApp\StudentGradeApp\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Lenovo\source\repos\StudentGradeApp\StudentGradeApp\obj\Debug\StudentGradeApp.csproj.AssemblyReference.cache
+C:\Users\Lenovo\source\repos\StudentGradeApp\StudentGradeApp\obj\Debug\StudentGradeApp.Forms.DisciplinaForm.resources
+C:\Users\Lenovo\source\repos\StudentGradeApp\StudentGradeApp\obj\Debug\StudentGradeApp.Forms.MainForm.resources
+C:\Users\Lenovo\source\repos\StudentGradeApp\StudentGradeApp\obj\Debug\StudentGradeApp.Forms.NotaForm.resources
+C:\Users\Lenovo\source\repos\StudentGradeApp\StudentGradeApp\obj\Debug\StudentGradeApp.Forms.StudentForm.resources
+C:\Users\Lenovo\source\repos\StudentGradeApp\StudentGradeApp\obj\Debug\StudentGradeApp.Properties.Resources.resources
+C:\Users\Lenovo\source\repos\StudentGradeApp\StudentGradeApp\obj\Debug\StudentGradeApp.csproj.GenerateResource.cache
+C:\Users\Lenovo\source\repos\StudentGradeApp\StudentGradeApp\obj\Debug\StudentGradeApp.csproj.CoreCompileInputs.cache
 C:\Users\Lenovo\source\repos\StudentGradeApp\StudentGradeApp\obj\Debug\StudentG.72770EBC.Up2Date
 C:\Users\Lenovo\source\repos\StudentGradeApp\StudentGradeApp\obj\Debug\StudentGradeApp.exe
 C:\Users\Lenovo\source\repos\StudentGradeApp\StudentGradeApp\obj\Debug\StudentGradeApp.pdb

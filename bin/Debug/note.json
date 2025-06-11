@@ -12,5 +12,12 @@
     "DisciplinaId": 2,
     "Valoare": 3,
     "DataNota": "2025-06-10T11:48:27.3224653+03:00"
+  },
+  {
+    "Id": 303,
+    "StudentId": 301,
+    "DisciplinaId": 2,
+    "Valoare": 1,
+    "DataNota": "2025-06-10T12:13:21.2084767+03:00"
   }
 ]
