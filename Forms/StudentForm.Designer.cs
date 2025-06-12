@@ -41,63 +41,71 @@
             // 
             // txtNume
             // 
-            this.txtNume.Location = new System.Drawing.Point(160, 59);
+            this.txtNume.Location = new System.Drawing.Point(194, 59);
             this.txtNume.Name = "txtNume";
             this.txtNume.Size = new System.Drawing.Size(288, 26);
             this.txtNume.TabIndex = 0;
             // 
             // txtPrenume
             // 
-            this.txtPrenume.Location = new System.Drawing.Point(160, 113);
+            this.txtPrenume.Location = new System.Drawing.Point(194, 113);
             this.txtPrenume.Name = "txtPrenume";
             this.txtPrenume.Size = new System.Drawing.Size(288, 26);
             this.txtPrenume.TabIndex = 1;
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(160, 179);
+            this.txtEmail.Location = new System.Drawing.Point(194, 179);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(288, 26);
             this.txtEmail.TabIndex = 2;
             // 
             // txtGrupa
             // 
-            this.txtGrupa.Location = new System.Drawing.Point(160, 238);
+            this.txtGrupa.Location = new System.Drawing.Point(194, 238);
             this.txtGrupa.Name = "txtGrupa";
             this.txtGrupa.Size = new System.Drawing.Size(288, 26);
             this.txtGrupa.TabIndex = 3;
             // 
             // btnCancel
             // 
+            this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(327, 336);
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCancel.Location = new System.Drawing.Point(361, 336);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(134, 75);
+            this.btnCancel.Size = new System.Drawing.Size(121, 48);
             this.btnCancel.TabIndex = 9;
             this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.UseVisualStyleBackColor = false;
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(148, 336);
+            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnSave.Location = new System.Drawing.Point(194, 336);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(134, 75);
+            this.btnSave.Size = new System.Drawing.Size(122, 48);
             this.btnSave.TabIndex = 8;
             this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.UseVisualStyleBackColor = false;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.label1.Location = new System.Drawing.Point(50, 62);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(51, 20);
+            this.label1.Size = new System.Drawing.Size(122, 20);
             this.label1.TabIndex = 10;
-            this.label1.Text = "Nume";
+            this.label1.Text = "Nume de familie";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.label2.Location = new System.Drawing.Point(50, 119);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(73, 20);
@@ -107,6 +115,8 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.label3.Location = new System.Drawing.Point(50, 182);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(48, 20);
@@ -116,6 +126,8 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.label4.Location = new System.Drawing.Point(50, 244);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(54, 20);
@@ -124,7 +136,7 @@
             // 
             // StudentForm
             // 
-            this.ClientSize = new System.Drawing.Size(511, 471);
+            this.ClientSize = new System.Drawing.Size(523, 424);
             this.ControlBox = false;
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);

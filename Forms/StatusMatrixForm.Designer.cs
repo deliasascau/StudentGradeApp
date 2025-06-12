@@ -25,6 +25,7 @@
             this.dgvMatrix.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMatrix.ReadOnly = true;
             this.dgvMatrix.RowHeadersVisible = false;
+            this.dgvMatrix.AllowUserToAddRows = false;
             this.dgvMatrix.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dgvMatrix.Location = new System.Drawing.Point(0, 0);
             this.dgvMatrix.Name = "dgvMatrix";
@@ -36,7 +37,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.dgvMatrix);
             this.Name = "StatusMatrixForm";
-            this.Text = "Status Promovat/Respins (Student × Disciplina)";
+            this.Text = "Situație promovat/picat (Student × Curs)";
             ((System.ComponentModel.ISupportInitialize)(this.dgvMatrix)).EndInit();
             this.ResumeLayout(false);
         }

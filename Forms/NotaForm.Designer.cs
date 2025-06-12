@@ -41,7 +41,8 @@
             this.lblStudent.AutoSize = true;
             this.lblStudent.Location = new System.Drawing.Point(30, 30);
             this.lblStudent.Name = "lblStudent";
-            this.lblStudent.Size = new System.Drawing.Size(60, 20);
+            this.lblStudent.Size = new System.Drawing.Size(66, 20);
+            this.lblStudent.TabIndex = 0;
             this.lblStudent.Text = "Student";
             // 
             // cmbStudent
@@ -50,13 +51,15 @@
             this.cmbStudent.Location = new System.Drawing.Point(150, 27);
             this.cmbStudent.Name = "cmbStudent";
             this.cmbStudent.Size = new System.Drawing.Size(300, 28);
+            this.cmbStudent.TabIndex = 1;
             // 
             // lblDisciplina
             // 
             this.lblDisciplina.AutoSize = true;
             this.lblDisciplina.Location = new System.Drawing.Point(30, 75);
             this.lblDisciplina.Name = "lblDisciplina";
-            this.lblDisciplina.Size = new System.Drawing.Size(75, 20);
+            this.lblDisciplina.Size = new System.Drawing.Size(60, 20);
+            this.lblDisciplina.TabIndex = 2;
             this.lblDisciplina.Text = "Disciplina";
             // 
             // cmbDisciplina
@@ -65,30 +68,46 @@
             this.cmbDisciplina.Location = new System.Drawing.Point(150, 72);
             this.cmbDisciplina.Name = "cmbDisciplina";
             this.cmbDisciplina.Size = new System.Drawing.Size(300, 28);
+            this.cmbDisciplina.TabIndex = 3;
             // 
             // lblNota
             // 
             this.lblNota.AutoSize = true;
             this.lblNota.Location = new System.Drawing.Point(30, 120);
             this.lblNota.Name = "lblNota";
-            this.lblNota.Size = new System.Drawing.Size(39, 20);
+            this.lblNota.Size = new System.Drawing.Size(54, 20);
+            this.lblNota.TabIndex = 4;
             this.lblNota.Text = "Nota";
             // 
             // numNota
             // 
             this.numNota.Location = new System.Drawing.Point(150, 118);
-            this.numNota.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
-            this.numNota.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            this.numNota.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.numNota.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.numNota.Name = "numNota";
             this.numNota.Size = new System.Drawing.Size(120, 26);
-            this.numNota.Value = new decimal(new int[] { 5, 0, 0, 0 });
+            this.numNota.TabIndex = 5;
+            this.numNota.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
             // 
             // lblData
             // 
             this.lblData.AutoSize = true;
             this.lblData.Location = new System.Drawing.Point(30, 165);
             this.lblData.Name = "lblData";
-            this.lblData.Size = new System.Drawing.Size(36, 20);
+            this.lblData.Size = new System.Drawing.Size(44, 20);
+            this.lblData.TabIndex = 6;
             this.lblData.Text = "Data";
             // 
             // dtpData
@@ -97,23 +116,31 @@
             this.dtpData.Location = new System.Drawing.Point(150, 162);
             this.dtpData.Name = "dtpData";
             this.dtpData.Size = new System.Drawing.Size(150, 26);
+            this.dtpData.TabIndex = 7;
             // 
             // btnSave
             // 
+            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnSave.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnSave.Location = new System.Drawing.Point(150, 210);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(100, 35);
+            this.btnSave.TabIndex = 8;
             this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.UseVisualStyleBackColor = false;
             // 
             // btnCancel
             // 
+            this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCancel.Location = new System.Drawing.Point(300, 210);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(100, 35);
+            this.btnCancel.TabIndex = 9;
             this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.UseVisualStyleBackColor = false;
             // 
             // NotaForm
             // 
@@ -129,10 +156,11 @@
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnCancel);
             this.Name = "NotaForm";
-            this.Text = "Nota";
+            this.Text = "Note";
             ((System.ComponentModel.ISupportInitialize)(this.numNota)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
     }
 }

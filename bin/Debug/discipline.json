@@ -1,20 +1,32 @@
 [
   {
     "Id": 1,
-    "Nume": "prograare",
-    "Acronym": "pclp",
-    "TipEvaluare": 1
-  },
-  {
-    "Id": 2,
-    "Nume": "ssdfds",
-    "Acronym": "fsdf",
+    "Nume": "Programare",
+    "Acronim": "POO",
     "TipEvaluare": 2
   },
   {
+    "Id": 2,
+    "Nume": "Matematici speciale",
+    "Acronim": "MS",
+    "TipEvaluare": 1
+  },
+  {
     "Id": 3,
-    "Nume": "dsa",
-    "Acronym": "dddddddd",
+    "Nume": "Teoria Sistemelor",
+    "Acronim": "TS",
+    "TipEvaluare": 1
+  },
+  {
+    "Id": 4,
+    "Nume": "Prelucrarea Semnalelor",
+    "Acronim": "PS",
+    "TipEvaluare": 2
+  },
+  {
+    "Id": 5,
+    "Nume": "Sisteme automate cu esantionare",
+    "Acronim": "SAE",
     "TipEvaluare": 1
   }
 ]

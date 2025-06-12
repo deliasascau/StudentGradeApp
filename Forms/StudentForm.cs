@@ -6,15 +6,20 @@ namespace StudentGradeApp.Forms
 {
     public partial class StudentForm : Form
     {
-        // Proprietate pe care MainForm o citeşte la OK
+        // Proprietate publică ce va fi citită de MainForm după închiderea formularului cu OK
         public Student Student { get; private set; }
 
-        // Constructor Add sau Edit
+        /// <summary>
+        /// Constructor pentru adăugare sau editare student.
+        /// Dacă este primit un student, se face o clonă a acestuia.
+        /// Dacă nu, se creează un student nou.
+        /// </summary>
+        /// <param name="student">Studentul existent pentru editare sau null pentru adăugare</param>
         public StudentForm(Student student)
         {
             InitializeComponent();
 
-            // Clone sau creează un nou obiect
+            // Dacă primim un student, îl copiem (nu referință directă)
             if (student != null)
             {
                 Student = new Student
@@ -28,48 +33,52 @@ namespace StudentGradeApp.Forms
             }
             else
             {
+                // Student nou, ID 0 inițial
                 Student = new Student { Id = 0 };
             }
 
-            // Populează controalele
+            // Populează câmpurile formularului cu valorile din student
             txtNume.Text = Student.Nume;
             txtPrenume.Text = Student.Prenume;
             txtEmail.Text = Student.Email;
             txtGrupa.Text = Student.Grupa;
 
-            // Wire butoanele
+            // Asociază evenimentele pentru butoane
             btnSave.Click += BtnSave_Click;
             btnCancel.Click += (s, e) => DialogResult = DialogResult.Cancel;
         }
 
+        /// <summary>
+        /// Eveniment declanșat la apăsarea butonului "Save".
+        /// Validează și salvează datele introduse în formular.
+        /// </summary>
         private void BtnSave_Click(object sender, EventArgs e)
         {
-            // Validări simple
+            // Validare simplă: câmpul Nume nu trebuie să fie gol
             if (string.IsNullOrWhiteSpace(txtNume.Text))
             {
-                MessageBox.Show("Introdu numele.");
+                MessageBox.Show("Enter the name, please.");
                 return;
             }
 
-            // Copiază din controale în obiect
+            // Copiază datele din controale în obiectul Student
             Student.Nume = txtNume.Text.Trim();
             Student.Prenume = txtPrenume.Text.Trim();
             Student.Email = txtEmail.Text.Trim();
             Student.Grupa = txtGrupa.Text.Trim();
 
-            // === generate int Id ===
+            // === Generare ID automat ===
+            // ID-ul este calculat ca produsul dintre lungimea numelui și a prenumelui,
+            // apoi înmulțit cu 10 și se adaugă ultima cifră a secundei curente.
             int lenN = Student.Nume.Length;
             int lenP = Student.Prenume.Length;
             int baseValue = lenN * lenP;
-            // one-digit suffix: last digit of current second (0–9)
-            int suffix = DateTime.Now.Second % 10;
+            int suffix = DateTime.Now.Second % 10; // ultima cifră a secundei (0–9)
             Student.Id = baseValue * 10 + suffix;
-            //                                     ^ so "35"→"350" + suffix→"354"
+            // Exemplu: Nume cu 5 litere și Prenume cu 7 → 5×7=35, 35×10=350, 350+4 = 354
 
-
-            // Semnal OK
+            // Închide formularul cu rezultat OK
             DialogResult = DialogResult.OK;
         }
-
     }
 }

@@ -10,7 +10,7 @@ namespace StudentGradeApp.Models
     {
         public int Id { get; set; } 
         public string Nume { get; set; }
-        public string Acronym { get; set; }
+        public string Acronim { get; set; }
         public TipEvaluare TipEvaluare { get; set; }
     }
 }

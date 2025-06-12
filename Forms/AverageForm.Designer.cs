@@ -39,40 +39,55 @@ namespace StudentGradeApp.Forms
             this.progressBarAverage = new System.Windows.Forms.ProgressBar();
             this.lblValue = new System.Windows.Forms.Label();
             this.lblSelect = new System.Windows.Forms.Label();
-
             this.SuspendLayout();
-
-            // lblSelect
-            this.lblSelect.AutoSize = true;
-            this.lblSelect.Location = new System.Drawing.Point(20, 20);
-            this.lblSelect.Text = "Selectează student:";
-
+            // 
             // cmbStudents
-            this.cmbStudents.DropDownStyle = ComboBoxStyle.DropDownList;
+            // 
+            this.cmbStudents.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbStudents.Location = new System.Drawing.Point(180, 16);
+            this.cmbStudents.Name = "cmbStudents";
             this.cmbStudents.Size = new System.Drawing.Size(250, 28);
-
+            this.cmbStudents.TabIndex = 1;
+            // 
             // progressBarAverage
+            // 
             this.progressBarAverage.Location = new System.Drawing.Point(20, 65);
+            this.progressBarAverage.Name = "progressBarAverage";
             this.progressBarAverage.Size = new System.Drawing.Size(410, 30);
-            this.progressBarAverage.Maximum = 100;
-            this.progressBarAverage.Style = ProgressBarStyle.Continuous;
-
+            this.progressBarAverage.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.progressBarAverage.TabIndex = 2;
+            // 
             // lblValue
+            // 
             this.lblValue.AutoSize = true;
             this.lblValue.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.lblValue.Location = new System.Drawing.Point(20, 105);
+            this.lblValue.Name = "lblValue";
+            this.lblValue.Size = new System.Drawing.Size(119, 32);
+            this.lblValue.TabIndex = 3;
             this.lblValue.Text = "Media: --";
-
+            // 
+            // lblSelect
+            // 
+            this.lblSelect.AutoSize = true;
+            this.lblSelect.Location = new System.Drawing.Point(20, 20);
+            this.lblSelect.Name = "lblSelect";
+            this.lblSelect.Size = new System.Drawing.Size(147, 20);
+            this.lblSelect.TabIndex = 0;
+            this.lblSelect.Text = "Selectează student";
+            // 
             // AverageForm
+            // 
             this.ClientSize = new System.Drawing.Size(460, 160);
             this.Controls.Add(this.lblSelect);
             this.Controls.Add(this.cmbStudents);
             this.Controls.Add(this.progressBarAverage);
             this.Controls.Add(this.lblValue);
-            this.Text = "Media studentului";
+            this.Name = "AverageForm";
+            this.Text = "Media generală";
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
 

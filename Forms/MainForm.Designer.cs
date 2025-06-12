@@ -1,227 +1,199 @@
-﻿namespace StudentGradeApp.Forms
+﻿using System;
+using System.Windows.Forms;
+
+namespace StudentGradeApp.Forms
 {
     partial class MainForm
     {
+        // -----------------  Designer fields  -----------------
         private System.ComponentModel.IContainer components = null;
-        private System.Windows.Forms.MenuStrip menuStripMain;
-        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem manageToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem studentsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem disciplineToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem notesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparatorReports;
-        private System.Windows.Forms.ToolStripMenuItem byStudentToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem byDisciplineToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem generalToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem averageToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem matrixToolStripMenuItem;
 
-        private System.Windows.Forms.DataGridView dgvEntities;
-        private System.Windows.Forms.Panel panelButtons;
-        private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Button btnEdit;
-        private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Button btnRefresh;
-        private System.Windows.Forms.Button btnExportCsv;
+        private MenuStrip menuStripMain;
+        private ToolStripMenuItem fileToolStripMenuItem;
+        private ToolStripMenuItem exitToolStripMenuItem;
+        private ToolStripMenuItem manageToolStripMenuItem;
+        private ToolStripMenuItem studentsToolStripMenuItem;
+        private ToolStripMenuItem disciplineToolStripMenuItem;
+        private ToolStripMenuItem notesToolStripMenuItem;
+        private ToolStripSeparator toolStripSeparatorReports;
+        private ToolStripMenuItem byStudentToolStripMenuItem;
+        private ToolStripMenuItem byDisciplineToolStripMenuItem;
+        private ToolStripMenuItem generalToolStripMenuItem;
+        private ToolStripSeparator toolStripSeparator1;
+        private ToolStripMenuItem averageToolStripMenuItem;
+        private ToolStripMenuItem matrixToolStripMenuItem;
+        private ToolStripSeparator toolStripSeparator2;
+        private ToolStripMenuItem filterGradesToolStripMenuItem;
 
+        private DataGridView dgvEntities;
+        private Panel panelButtons;
+        private Button btnAdd;
+        private Button btnEdit;
+        private Button btnDelete;
+        private Button btnRefresh;
+        private Button btnExportCsv;
+
+        // -----------------  Dispose  -----------------
         protected override void Dispose(bool disposing)
         {
-            if (disposing && (components != null))
+            if (disposing && components != null)
                 components.Dispose();
+
             base.Dispose(disposing);
         }
 
+        // -----------------  InitializeComponent  -----------------
         private void InitializeComponent()
         {
-            this.menuStripMain = new System.Windows.Forms.MenuStrip();
-            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.manageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.studentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.disciplineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.notesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparatorReports = new System.Windows.Forms.ToolStripSeparator();
-            this.byStudentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.byDisciplineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.generalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.averageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.matrixToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            components = new System.ComponentModel.Container();
 
-            this.dgvEntities = new System.Windows.Forms.DataGridView();
-            this.panelButtons = new System.Windows.Forms.Panel();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.btnEdit = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.btnRefresh = new System.Windows.Forms.Button();
-            this.btnExportCsv = new System.Windows.Forms.Button();
+            // ===== MENIU principal ===================================================
+            menuStripMain = new MenuStrip
+            {
+                BackColor = System.Drawing.Color.Indigo,
+                ImageScalingSize = new System.Drawing.Size(24, 24),
+                GripMargin = new Padding(2, 2, 0, 2),
+                Location = new System.Drawing.Point(0, 0),
+                Name = "menuStripMain",
+                Size = new System.Drawing.Size(800, 33)
+            };
 
-            this.menuStripMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEntities)).BeginInit();
-            this.panelButtons.SuspendLayout();
-            this.SuspendLayout();
-            // 
-            // menuStripMain
-            // 
-            this.menuStripMain.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.menuStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-                this.fileToolStripMenuItem,
-                this.manageToolStripMenuItem
+            // --- File ---
+            fileToolStripMenuItem = new ToolStripMenuItem
+            {
+                ForeColor = System.Drawing.SystemColors.ActiveBorder,
+                Text = "File"
+            };
+            exitToolStripMenuItem = new ToolStripMenuItem
+            {
+                BackColor = System.Drawing.Color.FromArgb(255, 128, 128),
+                Text = "Exit"
+            };
+            fileToolStripMenuItem.DropDownItems.Add(exitToolStripMenuItem);
+
+            // --- Manage ---
+            manageToolStripMenuItem = new ToolStripMenuItem
+            {
+                ForeColor = System.Drawing.SystemColors.ActiveBorder,
+                Text = "Manage"
+            };
+
+            //   • sub-meniuri de administrare
+            studentsToolStripMenuItem = BuildSubMenu("Studenți", System.Drawing.Color.Thistle);
+            disciplineToolStripMenuItem = BuildSubMenu("Discipline", System.Drawing.Color.Thistle);
+            notesToolStripMenuItem = BuildSubMenu("Note", System.Drawing.Color.Thistle);
+
+            //   • separator + rapoarte
+            toolStripSeparatorReports = new ToolStripSeparator();
+
+            byStudentToolStripMenuItem = BuildSubMenu("Situație per Student", System.Drawing.Color.Orchid);
+            byDisciplineToolStripMenuItem = BuildSubMenu("Situație per Disciplină", System.Drawing.Color.Orchid);
+            generalToolStripMenuItem = BuildSubMenu("Situație generală", System.Drawing.Color.Orchid);
+
+            toolStripSeparator1 = new ToolStripSeparator();
+
+            averageToolStripMenuItem = BuildSubMenu("Media generală", System.Drawing.Color.DarkOrchid);
+            matrixToolStripMenuItem = BuildSubMenu("Student x Curs", System.Drawing.Color.DarkOrchid);
+
+            toolStripSeparator2 = new ToolStripSeparator();
+
+            filterGradesToolStripMenuItem = BuildSubMenu("Filtrare Note", System.Drawing.Color.MediumPurple,
+                                                         System.Drawing.Color.White);
+
+            manageToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[]
+            {
+                studentsToolStripMenuItem,
+                disciplineToolStripMenuItem,
+                notesToolStripMenuItem,
+                toolStripSeparatorReports,
+                byStudentToolStripMenuItem,
+                byDisciplineToolStripMenuItem,
+                generalToolStripMenuItem,
+                toolStripSeparator1,
+                averageToolStripMenuItem,
+                matrixToolStripMenuItem,
+                toolStripSeparator2,
+                filterGradesToolStripMenuItem
             });
-            this.menuStripMain.Location = new System.Drawing.Point(0, 0);
-            this.menuStripMain.Name = "menuStripMain";
-            this.menuStripMain.Size = new System.Drawing.Size(800, 28);
-            this.menuStripMain.TabIndex = 0;
-            // 
-            // fileToolStripMenuItem
-            // 
-            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-                this.exitToolStripMenuItem
+
+            menuStripMain.Items.AddRange(new ToolStripItem[]
+            {
+                fileToolStripMenuItem,
+                manageToolStripMenuItem
             });
-            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Text = "File";
-            // 
-            // exitToolStripMenuItem
-            // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Text = "Exit";
-            // 
-            // manageToolStripMenuItem
-            // 
-            this.manageToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-                this.studentsToolStripMenuItem,
-                this.disciplineToolStripMenuItem,
-                this.notesToolStripMenuItem,
-                this.toolStripSeparatorReports,
-                this.byStudentToolStripMenuItem,
-                this.byDisciplineToolStripMenuItem,
-                this.generalToolStripMenuItem,
-                this.averageToolStripMenuItem,
-                this.matrixToolStripMenuItem
+
+            // ===== DataGridView ======================================================
+            dgvEntities = new DataGridView
+            {
+                AllowUserToAddRows = false,
+                AllowUserToDeleteRows = false,
+                AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill,
+                BackgroundColor = System.Drawing.Color.White,
+                BorderStyle = BorderStyle.None,
+                ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize,
+                Dock = DockStyle.Fill,
+                ReadOnly = true,
+                RowHeadersWidth = 62,
+                SelectionMode = DataGridViewSelectionMode.FullRowSelect
+            };
+
+            // ===== Bara de butoane ===================================================
+            panelButtons = new Panel
+            {
+                BackColor = System.Drawing.SystemColors.ScrollBar,
+                BorderStyle = BorderStyle.Fixed3D,
+                Dock = DockStyle.Bottom,
+                Size = new System.Drawing.Size(800, 100)
+            };
+
+            btnAdd = BuildButton("Add", System.Drawing.Color.Lime, 185);
+            btnEdit = BuildButton("Edit", System.Drawing.Color.Yellow, 270);
+            btnDelete = BuildButton("Delete", System.Drawing.Color.Red, 355);
+            btnRefresh = BuildButton("Refresh", System.Drawing.Color.Cyan, 440);
+            btnExportCsv = BuildButton("Export CSV", System.Drawing.Color.Violet, 525, width: 90);
+
+            panelButtons.Controls.AddRange(new Control[]
+            {
+                btnAdd, btnEdit, btnDelete, btnRefresh, btnExportCsv
             });
-            this.manageToolStripMenuItem.Name = "manageToolStripMenuItem";
-            this.manageToolStripMenuItem.Text = "Manage";
-            // 
-            // studentsToolStripMenuItem
-            // 
-            this.studentsToolStripMenuItem.Name = "studentsToolStripMenuItem";
-            this.studentsToolStripMenuItem.Text = "Students";
-            // 
-            // disciplineToolStripMenuItem
-            // 
-            this.disciplineToolStripMenuItem.Name = "disciplineToolStripMenuItem";
-            this.disciplineToolStripMenuItem.Text = "Discipline";
-            // 
-            // notesToolStripMenuItem
-            // 
-            this.notesToolStripMenuItem.Name = "notesToolStripMenuItem";
-            this.notesToolStripMenuItem.Text = "Notes";
-            // 
-            // toolStripSeparatorReports
-            // 
-            this.toolStripSeparatorReports.Name = "toolStripSeparatorReports";
-            // 
-            // byStudentToolStripMenuItem
-            // 
-            this.byStudentToolStripMenuItem.Name = "byStudentToolStripMenuItem";
-            this.byStudentToolStripMenuItem.Text = "Situație per Student";
-            // 
-            // byDisciplineToolStripMenuItem
-            // 
-            this.byDisciplineToolStripMenuItem.Name = "byDisciplineToolStripMenuItem";
-            this.byDisciplineToolStripMenuItem.Text = "Situație per Discipline";
-            // 
-            // generalToolStripMenuItem
-            // 
-            this.generalToolStripMenuItem.Name = "generalToolStripMenuItem";
-            this.generalToolStripMenuItem.Text = "Situație Generală";
-            // 
-            // averageToolStripMenuItem
-            // 
-            this.averageToolStripMenuItem.Name = "averageToolStripMenuItem";
-            this.averageToolStripMenuItem.Text = "Interactive Average";
-            // 
-            // matrixToolStripMenuItem
-            // 
-            this.matrixToolStripMenuItem.Name = "matrixToolStripMenuItem";
-            this.matrixToolStripMenuItem.Text = "Matrix Student×Disciplina";
-            // 
-            // dgvEntities
-            // 
-            this.dgvEntities.AllowUserToAddRows = false;
-            this.dgvEntities.AllowUserToDeleteRows = false;
-            this.dgvEntities.ColumnHeadersHeightSizeMode =
-                System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEntities.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvEntities.Location = new System.Drawing.Point(0, 28);
-            this.dgvEntities.Name = "dgvEntities";
-            this.dgvEntities.ReadOnly = true;
-            this.dgvEntities.SelectionMode =
-                System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvEntities.Size = new System.Drawing.Size(800, 382);
-            // 
-            // panelButtons
-            // 
-            this.panelButtons.Controls.Add(this.btnAdd);
-            this.panelButtons.Controls.Add(this.btnEdit);
-            this.panelButtons.Controls.Add(this.btnDelete);
-            this.panelButtons.Controls.Add(this.btnRefresh);
-            this.panelButtons.Controls.Add(this.btnExportCsv);
-            this.panelButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelButtons.Location = new System.Drawing.Point(0, 410);
-            this.panelButtons.Name = "panelButtons";
-            this.panelButtons.Size = new System.Drawing.Size(800, 50);
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Location = new System.Drawing.Point(10, 10);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 30);
-            this.btnAdd.Text = "Add";
-            // 
-            // btnEdit
-            // 
-            this.btnEdit.Location = new System.Drawing.Point(95, 10);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(75, 30);
-            this.btnEdit.Text = "Edit";
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Location = new System.Drawing.Point(180, 10);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(75, 30);
-            this.btnDelete.Text = "Delete";
-            // 
-            // btnRefresh
-            // 
-            this.btnRefresh.Location = new System.Drawing.Point(265, 10);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(75, 30);
-            this.btnRefresh.Text = "Refresh";
-            // 
-            // btnExportCsv
-            // 
-            this.btnExportCsv.Location = new System.Drawing.Point(350, 10);
-            this.btnExportCsv.Name = "btnExportCsv";
-            this.btnExportCsv.Size = new System.Drawing.Size(90, 30);
-            this.btnExportCsv.Text = "Export CSV";
-            // 
-            // MainForm
-            // 
-            this.ClientSize = new System.Drawing.Size(800, 460);
-            this.Controls.Add(this.dgvEntities);
-            this.Controls.Add(this.panelButtons);
-            this.Controls.Add(this.menuStripMain);
-            this.MainMenuStrip = this.menuStripMain;
-            this.Name = "MainForm";
-            this.Text = "Student Grade App";
-            this.menuStripMain.ResumeLayout(false);
-            this.menuStripMain.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEntities)).EndInit();
-            this.panelButtons.ResumeLayout(false);
-            this.ResumeLayout(false);
-            this.PerformLayout();
+
+            // ===== Form -- proprietăți generale =====================================
+            AutoScaleMode = AutoScaleMode.Font;
+            AutoSize = true;
+            ClientSize = new System.Drawing.Size(800, 460);
+            Controls.Add(dgvEntities);
+            Controls.Add(panelButtons);
+            Controls.Add(menuStripMain);
+            Cursor = Cursors.PanNW;
+            MainMenuStrip = menuStripMain;
+            Name = "MainForm";
+            Text = "Student Grade App";
+        }
+
+        // -----------------  Helpers  -----------------
+        private static ToolStripMenuItem BuildSubMenu(string text, System.Drawing.Color back,
+                                                      System.Drawing.Color? fore = null)
+        {
+            return new ToolStripMenuItem
+            {
+                BackColor = back,
+                ForeColor = fore ?? System.Drawing.SystemColors.ControlText,
+                Text = text
+            };
+        }
+
+        private static Button BuildButton(string text, System.Drawing.Color back, int left, int width = 75)
+        {
+            return new Button
+            {
+                BackColor = back,
+                FlatStyle = FlatStyle.Popup,
+                Location = new System.Drawing.Point(left, 18),
+                Name = $"btn{text.Replace(" ", "")}",
+                Size = new System.Drawing.Size(width, 61),
+                Text = text,
+                UseVisualStyleBackColor = false
+            };
         }
     }
 }

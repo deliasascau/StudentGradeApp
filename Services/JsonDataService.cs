@@ -6,13 +6,22 @@ using StudentGradeApp.Models;
 
 namespace StudentGradeApp.Services
 {
+    /// <summary>
+    /// Implementare a interfeței IDataService folosind fișiere JSON pentru persistență.
+    /// </summary>
     public class JsonDataService : IDataService
     {
+        // Căile către fișierele JSON
         private readonly string _studentsFile = "students.json";
         private readonly string _disciplineFile = "discipline.json";
         private readonly string _noteFile = "note.json";
 
-        // Încarcă orice listă de T din fișier
+        // ===== FUNCȚII GENERICE =====
+
+        /// <summary>
+        /// Încarcă o listă de obiecte de tip T din fișierul dat.
+        /// Dacă fișierul nu există, returnează o listă goală.
+        /// </summary>
         private List<T> LoadList<T>(string path)
         {
             if (!File.Exists(path))
@@ -23,14 +32,17 @@ namespace StudentGradeApp.Services
                    ?? new List<T>();
         }
 
-        // Salvează orice listă de T în fișier
+        /// <summary>
+        /// Salvează o listă de obiecte de tip T într-un fișier JSON.
+        /// </summary>
         private void SaveList<T>(string path, List<T> list)
         {
             var json = JsonConvert.SerializeObject(list, Formatting.Indented);
             File.WriteAllText(path, json);
         }
 
-        // ==== STUDENT ====
+        // ===== STUDENT =====
+
         public IEnumerable<Student> GetAllStudents()
         {
             return LoadList<Student>(_studentsFile);
@@ -39,8 +51,7 @@ namespace StudentGradeApp.Services
         public void AddStudent(Student student)
         {
             var list = LoadList<Student>(_studentsFile);
-            // Id-ul îl primește deja de la StudentForm
-            list.Add(student);
+            list.Add(student); // Id-ul e deja generat în StudentForm
             SaveList(_studentsFile, list);
         }
 
@@ -62,7 +73,8 @@ namespace StudentGradeApp.Services
                 SaveList(_studentsFile, list);
         }
 
-        // ==== DISCIPLINA ====
+        // ===== DISCIPLINA =====
+
         public IEnumerable<Disciplina> GetAllDiscipline()
         {
             return LoadList<Disciplina>(_disciplineFile);
@@ -71,8 +83,7 @@ namespace StudentGradeApp.Services
         public void AddDisciplina(Disciplina disciplina)
         {
             var list = LoadList<Disciplina>(_disciplineFile);
-            // Id-ul îl setezi tu manual în DisciplinaForm
-            list.Add(disciplina);
+            list.Add(disciplina); // Id-ul e setat în DisciplinaForm
             SaveList(_disciplineFile, list);
         }
 
@@ -94,7 +105,8 @@ namespace StudentGradeApp.Services
                 SaveList(_disciplineFile, list);
         }
 
-        // ==== NOTA ====
+        // ===== NOTA =====
+
         public IEnumerable<Nota> GetAllNotes()
         {
             return LoadList<Nota>(_noteFile);
@@ -103,8 +115,7 @@ namespace StudentGradeApp.Services
         public void AddNota(Nota nota)
         {
             var list = LoadList<Nota>(_noteFile);
-            // Id-ul îl generezi tu în NotaForm (studentId + disciplinaId)
-            list.Add(nota);
+            list.Add(nota); // Id-ul e compus în NotaForm (StudentId + DisciplinaId)
             SaveList(_noteFile, list);
         }
 

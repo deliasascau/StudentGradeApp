@@ -20,7 +20,6 @@ namespace StudentGradeApp.Forms
         public MainForm()
         {
             InitializeComponent();
-
             _dataService = new JsonDataService();
 
             // ---- MENIU Manage ----
@@ -28,30 +27,54 @@ namespace StudentGradeApp.Forms
             disciplineToolStripMenuItem.Click += (s, e) => LoadDiscipline();
             notesToolStripMenuItem.Click += (s, e) => LoadNotes();
             toolStripSeparatorReports.Visible = true;
-            byStudentToolStripMenuItem.Click += (s, e) => LoadByStudentReport();
-            byDisciplineToolStripMenuItem.Click += (s, e) => LoadByDisciplineReport();
-            generalToolStripMenuItem.Click += (s, e) => LoadGeneralReport();
-            averageToolStripMenuItem.Click += (s, e) =>
+
+            byStudentToolStripMenuItem.Click += (s, e) =>
             {
-                using (var avgForm = new AverageForm())
-                    avgForm.ShowDialog();
+                using (var f = new StudentSituationForm())
+                {
+                    f.ShowDialog();
+                }
             };
 
-            // Dinamic: Filtrare Note
-            var filterItem = new ToolStripMenuItem("Filtrare Note");
-            filterItem.Click += (s, e) =>
+            byDisciplineToolStripMenuItem.Click += (s, e) =>
             {
-                using (var f = new FilterForm())
+                using (var f = new DisciplineSituationForm())
+                {
                     f.ShowDialog();
+                }
             };
-            manageToolStripMenuItem.DropDownItems.Add(filterItem);
+
+            generalToolStripMenuItem.Click += (s, e) =>
+            {
+                using (var f = new GeneralOverviewForm())
+                {
+                    f.ShowDialog();
+                }
+            };
+
+            averageToolStripMenuItem.Click += (s, e) =>
+            {
+                using (var f = new AverageForm())
+                {
+                    f.ShowDialog();
+                }
+            };
 
             matrixToolStripMenuItem.Click += (s, e) =>
             {
-                using (var m = new StatusMatrixForm())
-                    m.ShowDialog();
+                using (var f = new StatusMatrixForm())
+                {
+                    f.ShowDialog();
+                }
             };
 
+            filterGradesToolStripMenuItem.Click += (s, e) =>
+            {
+                using (var f = new FilterForm())
+                {
+                    f.ShowDialog();
+                }
+            };
 
             exitToolStripMenuItem.Click += (s, e) => Close();
 
@@ -71,6 +94,7 @@ namespace StudentGradeApp.Forms
             LoadStudents();
         }
 
+        // --------------------- Încărcare entități ---------------------
         private void LoadStudents()
         {
             _students = _dataService.GetAllStudents().ToList();
@@ -89,100 +113,41 @@ namespace StudentGradeApp.Forms
             dgvEntities.DataSource = _note;
         }
 
-        private void LoadByStudentReport()
-        {
-            var notes = _dataService.GetAllNotes().ToList();
-            var studs = _dataService.GetAllStudents()
-                                     .ToDictionary(s => s.Id, s => $"{s.Nume} {s.Prenume}");
-            var disci = _dataService.GetAllDiscipline()
-                                     .ToDictionary(d => d.Id, d => d.Nume);
-
-            var report = notes
-                .Select(n => new
-                {
-                    Student = studs[n.StudentId],
-                    Disciplina = disci[n.DisciplinaId],
-                    Nota = n.Valoare,
-                    Data = n.DataNota.ToString("dd.MM.yyyy")
-                })
-                .OrderBy(r => r.Student)
-                .ThenBy(r => r.Data)
-                .ToList();
-
-            dgvEntities.DataSource = report;
-        }
-
-        private void LoadByDisciplineReport()
-        {
-            var notes = _dataService.GetAllNotes().ToList();
-            var studs = _dataService.GetAllStudents()
-                                     .ToDictionary(s => s.Id, s => $"{s.Nume} {s.Prenume}");
-            var disci = _dataService.GetAllDiscipline()
-                                     .ToDictionary(d => d.Id, d => d.Nume);
-
-            var report = notes
-                .Select(n => new
-                {
-                    Disciplina = disci[n.DisciplinaId],
-                    Student = studs[n.StudentId],
-                    Nota = n.Valoare,
-                    Data = n.DataNota.ToString("dd.MM.yyyy")
-                })
-                .OrderBy(r => r.Disciplina)
-                .ThenBy(r => r.Data)
-                .ToList();
-
-            dgvEntities.DataSource = report;
-        }
-
-        private void LoadGeneralReport()
-        {
-            var notes = _dataService.GetAllNotes().ToList();
-            var disci = _dataService.GetAllDiscipline()
-                                     .ToDictionary(d => d.Id, d => d.Nume);
-
-            var report = notes
-                .GroupBy(n => n.DisciplinaId)
-                .Select(g => new
-                {
-                    Disciplina = disci[g.Key],
-                    NumarNote = g.Count(),
-                    MediaDisciplinei = Math.Round(g.Average(n => n.Valoare), 2)
-                })
-                .OrderBy(r => r.Disciplina)
-                .ToList();
-
-            dgvEntities.DataSource = report;
-        }
-
+        // --------------------- CRUD ---------------------
         private void OnAdd(object sender, EventArgs e)
         {
             if (dgvEntities.DataSource == _students)
             {
                 using (var f = new StudentForm(null))
+                {
                     if (f.ShowDialog() == DialogResult.OK)
                     {
                         _dataService.AddStudent(f.Student);
                         LoadStudents();
                     }
+                }
             }
             else if (dgvEntities.DataSource == _discipline)
             {
                 using (var f = new DisciplinaForm(null))
+                {
                     if (f.ShowDialog() == DialogResult.OK)
                     {
                         _dataService.AddDisciplina(f.Disciplina);
                         LoadDiscipline();
                     }
+                }
             }
             else
             {
                 using (var f = new NotaForm(null))
+                {
                     if (f.ShowDialog() == DialogResult.OK)
                     {
                         _dataService.AddNota(f.Nota);
                         LoadNotes();
                     }
+                }
             }
         }
 
@@ -194,39 +159,47 @@ namespace StudentGradeApp.Forms
             {
                 var sel = (Student)dgvEntities.CurrentRow.DataBoundItem;
                 using (var f = new StudentForm(sel))
+                {
                     if (f.ShowDialog() == DialogResult.OK)
                     {
                         _dataService.UpdateStudent(f.Student);
                         LoadStudents();
                     }
+                }
             }
             else if (dgvEntities.DataSource == _discipline)
             {
                 var sel = (Disciplina)dgvEntities.CurrentRow.DataBoundItem;
                 using (var f = new DisciplinaForm(sel))
+                {
                     if (f.ShowDialog() == DialogResult.OK)
                     {
                         _dataService.UpdateDisciplina(f.Disciplina);
                         LoadDiscipline();
                     }
+                }
             }
             else
             {
                 var sel = (Nota)dgvEntities.CurrentRow.DataBoundItem;
                 using (var f = new NotaForm(sel))
+                {
                     if (f.ShowDialog() == DialogResult.OK)
                     {
                         _dataService.UpdateNota(f.Nota);
                         LoadNotes();
                     }
+                }
             }
         }
 
         private void OnDelete(object sender, EventArgs e)
         {
             if (dgvEntities.CurrentRow == null) return;
-            if (MessageBox.Show("Sigur vrei să ștergi?", "Confirmare",
-                                MessageBoxButtons.YesNo) != DialogResult.Yes) return;
+
+            var confirm = MessageBox.Show("Sigur vrei să ștergi?", "Confirmare",
+                                          MessageBoxButtons.YesNo);
+            if (confirm != DialogResult.Yes) return;
 
             if (dgvEntities.DataSource == _students)
             {
@@ -255,6 +228,7 @@ namespace StudentGradeApp.Forms
             else LoadNotes();
         }
 
+        // --------------------- Utilitare ---------------------
         private IEnumerable CurrentItems()
         {
             if (dgvEntities.DataSource == _students) return _students;
@@ -262,7 +236,7 @@ namespace StudentGradeApp.Forms
             return _note;
         }
 
-        private string SaveCsv()
+        private static string SaveCsv()
         {
             using (var dlg = new SaveFileDialog
             {

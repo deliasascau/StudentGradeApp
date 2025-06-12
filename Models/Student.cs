@@ -9,5 +9,6 @@ namespace StudentGradeApp.Models
         public string Prenume { get; set; }
         public string Email { get; set; }
         public string Grupa { get; set; }
+        public string Nume_complet => $"{Nume} {Prenume}";
     }
 }

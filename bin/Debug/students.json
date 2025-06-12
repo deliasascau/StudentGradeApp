@@ -1,16 +1,42 @@
 [
   {
-    "Id": 304,
-    "Nume": "delia",
-    "Prenume": "sascau",
-    "Email": "delia@mail.com",
-    "Grupa": "4lf432"
+    "Id": 303,
+    "Nume": "Sascău",
+    "Prenume": "Delia",
+    "Email": "delia.sascau@student.unitbv.ro",
+    "Grupa": "4LF432",
+    "Nume_complet": "Sascău Delia"
   },
   {
-    "Id": 301,
-    "Nume": "marina",
-    "Prenume": "dsddf",
-    "Email": "dfsd",
-    "Grupa": "sda"
+    "Id": 357,
+    "Nume": "Popescu",
+    "Prenume": "Mihai",
+    "Email": "p.miha@student.unitbv.ro",
+    "Grupa": "4LF432",
+    "Nume_complet": "Popescu Mihai"
+  },
+  {
+    "Id": 631,
+    "Nume": "Mărginean",
+    "Prenume": "Camelia",
+    "Email": "m.camelia@student.unitbv.ro",
+    "Grupa": "4LF432",
+    "Nume_complet": "Mărginean Camelia"
+  },
+  {
+    "Id": 363,
+    "Nume": "Mihnea",
+    "Prenume": "Andrei",
+    "Email": "m.andrei@student.unitbv.ro",
+    "Grupa": "4LF432",
+    "Nume_complet": "Mihnea Andrei"
+  },
+  {
+    "Id": 457,
+    "Nume": "Marinescu",
+    "Prenume": "Mihai",
+    "Email": "m.mihai@student.unitbv.ro",
+    "Grupa": "4LF432",
+    "Nume_complet": "Marinescu Mihai"
   }
 ]

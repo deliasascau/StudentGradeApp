@@ -7,6 +7,9 @@ using StudentGradeApp.Services;
 
 namespace StudentGradeApp.Forms
 {
+    /// <summary>
+    /// Form care afișează o matrice de statusuri (Promovat/Picat/–) pentru fiecare student și disciplină.
+    /// </summary>
     public partial class StatusMatrixForm : Form
     {
         private readonly IDataService _dataService;
@@ -18,55 +21,77 @@ namespace StudentGradeApp.Forms
             BuildMatrix();
         }
 
+        /// <summary>
+        /// Construiește tabelul pivot care afișează situația fiecărui student la fiecare disciplină.
+        /// </summary>
         private void BuildMatrix()
         {
-            // Load data
             var students = _dataService.GetAllStudents().ToList();
             var disciplines = _dataService.GetAllDiscipline().ToList();
             var notes = _dataService.GetAllNotes().ToList();
 
-            // Pivot DataTable
             var dt = new DataTable();
             dt.Columns.Add("Student");
 
-            // One column per discipline
             foreach (var d in disciplines)
                 dt.Columns.Add(d.Nume);
 
-            // Fill rows
             foreach (var s in students)
             {
                 var row = dt.NewRow();
-                row["Student"] = s.Nume + " " + s.Prenume;
+                row["Student"] = $"{s.Nume} {s.Prenume}";
 
                 foreach (var d in disciplines)
                 {
-                    // Average grade for this student+discipline
-                    var avg = notes
+                    var noteDisc = notes
                         .Where(n => n.StudentId == s.Id && n.DisciplinaId == d.Id)
                         .Select(n => n.Valoare)
-                        .DefaultIfEmpty()    // if no notes, treat as 0
-                        .Average();
+                        .ToList();
 
-                    row[d.Nume] = avg >= 5 ? "Promovat" : "Respins";
+                    if (noteDisc.Count == 0)
+                    {
+                        row[d.Nume] = "-";                         // fără notă
+                    }
+                    else
+                    {
+                        var avg = noteDisc.Average();
+                        row[d.Nume] = avg >= 5 ? "Promovat" : "Picat";
+                    }
                 }
 
                 dt.Rows.Add(row);
             }
 
-            // Bind to grid
             dgvMatrix.DataSource = dt;
 
-            // Color‐coding on formatting
-            dgvMatrix.CellFormatting += (s, e) =>
+            // refacem subscrierea – prevenim multiple adăugări la eveniment
+            dgvMatrix.CellFormatting -= DgvMatrix_CellFormatting;
+            dgvMatrix.CellFormatting += DgvMatrix_CellFormatting;
+        }
+
+        /// <summary>
+        /// Colorare condiționată a celulelor.
+        /// </summary>
+        private void DgvMatrix_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.RowIndex < 0 || e.ColumnIndex == 0) return;
+
+            var val = e.Value?.ToString();
+            if (val == "Promovat")
             {
-                if (e.RowIndex < 0 || e.ColumnIndex == 0) return;
-                var val = e.Value as string;
-                if (val == "Promovat")
-                    e.CellStyle.BackColor = Color.LightGreen;
-                else if (val == "Respins")
-                    e.CellStyle.BackColor = Color.IndianRed;
-            };
+                e.CellStyle.BackColor = Color.LightGreen;
+                e.CellStyle.ForeColor = Color.Black;
+            }
+            else if (val == "Picat")
+            {
+                e.CellStyle.BackColor = Color.IndianRed;
+                e.CellStyle.ForeColor = Color.White;
+            }
+            else  // "-"
+            {
+                e.CellStyle.BackColor = dgvMatrix.DefaultCellStyle.BackColor;
+                e.CellStyle.ForeColor = dgvMatrix.DefaultCellStyle.ForeColor;
+            }
         }
     }
 }
